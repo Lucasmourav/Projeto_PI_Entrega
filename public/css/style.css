@@ -28,7 +28,7 @@ img {
 /*Superinfo*/
 
 .superinfo-bg {
-	background: rgb(255, 159, 175);
+	background: #122ab2;
 	color: white;
 }
 
@@ -46,13 +46,13 @@ img {
 }
 
 .superinfo a {
-	color: rgb(255, 255, 255);
+	color: white;
 }
 
 /*Menu*/
 
 .menu-bg {
-	background: rgb(255, 91, 118);
+	background: #2c70ff;
 }
 
 .menu {
@@ -66,7 +66,7 @@ img {
 }
 
 .menu a {
-	color: rgb(255, 255, 255);
+	color: white;
 }
 
 .menu-logo a {
@@ -87,7 +87,7 @@ img {
 }
 
 .menu-nav a:hover{
-	color: brown;
+	color: #122ab2;
 }
 
 /*Introdução*/
@@ -103,8 +103,8 @@ img {
 /*Sobre*/
 
 .sobre {
-	border-top: 2px solid rgb(255, 91, 118);
-	border-bottom: 2px solid rgb(255, 91, 118);
+	border-top: 2px solid #2c70ff;
+	border-bottom: 2px solid #2c70ff;
 	max-width: 960px;
 	margin: 0 auto;
 	padding: 60px 0;
@@ -165,7 +165,7 @@ img {
 }
 
 .purple {
-	border-top: 8px solid #f9265e;
+	border-top: 8px solid #ae81ff;
 }
 
 .pink {
@@ -173,12 +173,12 @@ img {
 }
 
 .blue {
-	border-top: 8px solid #f9265e;
+	border-top: 8px solid #66d9eb;
 }
 
-/*Cardapio*/
+/*Preco*/
 
-.cardapio{
+.preco {
 	background: #f7f7f7;
 	padding: 60px;
 	display: flex;
@@ -186,28 +186,21 @@ img {
 	align-items: flex-end;
 }
 
-.cardapio h1 {
-	width: 100%;
-	font-size: 3em;
-	margin-bottom: 60px;
-	text-align: left;
-}
-
-.cardapio-item {
+.preco-item {
 	flex: 1 1 260px;
 	border: 4px solid white;
 	padding: 20px;
 	margin: 10px;
 }
 
-.cardapio-item h2 {
+.preco-item h2 {
 	font-size: 3em;
 	color: #a4a4a4;
 	text-align: center;
 	margin-top: 20px;
 }
 
-.cardapio-item span {
+.preco-item span {
 	max-width: 300px;
 	margin: 20px auto;
 	display: block;
@@ -219,11 +212,11 @@ img {
 	border-bottom: 4px solid white;
 }
 
-.cardapio-item sup {
+.preco-item sup {
 	font-size: 1.5rem;
 }
 
-.cardapio-item ul {
+.preco-item ul {
 	max-width: 300px;
 	margin: 20px auto;
 	font-size: 1.25em;
@@ -231,14 +224,14 @@ img {
 	color: #7c7c7c;
 }
 
-.cardapio-item li {
+.preco-item li {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 15px;
 }
 
-.cardapio-item li::after {
+.preco-item li::after {
 	content: '';
 	display: block;
 	width: 6px;
@@ -247,7 +240,7 @@ img {
 	border-radius: 50%;
 }
 
-.cardapio-item a {
+.preco-item a {
 	max-width: 300px;
 	display: block;
 	margin: 20px auto;
@@ -261,45 +254,39 @@ img {
 }
 
 @media (max-width: 800px) {
-	.cardapio {
+	.preco {
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-	.cardapio .cardapio-item:nth-child(3) {
+	.preco .preco-item:nth-child(3) {
 		order: -2;
 	}
-	.cardapio .cardapio-item:nth-child(2) {
+	.preco .preco-item:nth-child(2) {
 		order: -1;
 	}
 }
 
-/*Promocoes*/
+/*Qualidade*/
 
-.promocoes {
+.qualidade {
 	max-width: 960px;
 	margin: 60px auto;
 	display: flex;
 	flex-wrap: wrap;
 }
-.promocoes h1 {
-	width: 100%;
-	font-size: 3em;
-	margin-bottom: 60px;
-	text-align: left;
-}
 
-.promocoes-item {
+.qualidade-item {
 	flex: 1 1 300px;
 	margin: 20px 10px;
 }
 
-.promocoes-item h2 {
+.qualidade-item h2 {
 	font-size: 2.25em;
 	color: #a4a4a4;
 	margin-bottom: 20px;
 }
 
-.promocoes-item h2::before {
+.qualidade-item h2::before {
 	content: '';
 	display: inline-block;
 	width: 8px;
@@ -307,19 +294,19 @@ img {
 	margin-right: 10px;
 }
 
-.promocoes-item:nth-of-type(3n+1) h2::before {
+.qualidade-item:nth-of-type(3n+1) h2::before {
 	background: #ae81ff;
 }
 
-.promocoes-item:nth-of-type(3n+2) h2::before {
+.qualidade-item:nth-of-type(3n+2) h2::before {
 	background: #f9265e;
 }
 
-.promocoes-item:nth-of-type(3n+3) h2::before {
+.qualidade-item:nth-of-type(3n+3) h2::before {
 	background: #66d9eb;
 }
 
-.promocoes-item p {
+.qualidade-item p {
 	font-size: 1.25em;
 	line-height: 1.4;
 	color: #7c7c7c;
@@ -327,24 +314,24 @@ img {
 
 /*Newsletter*/
 
-.contato {
+.newsletter {
 	background: #f7f7f7;
 	padding: 60px calc((100% - 960px) / 2 );
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.contato-info {
+.newsletter-info {
 	flex: 1 1 240px;
 	margin: 0 10px;
 }
 
-.contato-info h1 {
+.newsletter-info h1 {
 	font-size: 3em;
 	color: #a4a4a4;
 }
 
-.contato-info p {
+.newsletter-info p {
 	font-size: 1.25em;
 	font-style: italic;
 	max-width: 230px;
@@ -352,7 +339,7 @@ img {
 	margin-bottom: 10px;
 }
 
-.contato-form {
+.newsletter-form {
 	flex: 2 1 260px;
 	margin: 0 10px;
 	align-self: center;
@@ -360,26 +347,26 @@ img {
 	flex-wrap: wrap;
 }
 
-.contato-form input {
+.newsletter-form input {
 	flex: 3 1 260px;
 	font-size: 1.25em;
 	color: #7c7c7c;
 	font-style: italic;
 	font-family: "Nunito", Helvetica, Arial, sans-serif;
-	border: 4px solid pink;
+	border: 4px solid #2c70ff;
 	background: transparent;
 	padding: 15px 10px;
 	margin: 0px;
 	border-radius: 0px;
 }
 
-.contato-form button {
+.newsletter-form button {
 	flex: 1 1 260px;
 	font-family: "Nunito", Helvetica, Arial, sans-serif;
 	font-size: 2.25em;
 	font-weight: bold;
 	text-transform: uppercase;
-	background: pink;
+	background: #2c70ff;
 	color: white;
 	margin: 0px;
 	cursor: pointer;
@@ -388,7 +375,7 @@ img {
 }
 
 @media (max-width: 600px) {
-	.contato-form button {
+	.newsletter-form button {
 		font-size: 1.5em;
 	}
 }
@@ -397,7 +384,7 @@ img {
 
 .footer {
 	display: flex;
-	background: rgb(255, 154, 171);
+	background: #2c70ff;
 	height: 200px;
 	align-items: center;
 }
@@ -406,5 +393,5 @@ img {
 	flex: 1;
 	text-align: center;
 	font-size: 2.25em;
-	color: white
+	color: #122ab2;
 }
