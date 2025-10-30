@@ -1,0 +1,19 @@
+{
+    "name": "carla/projeto_pi_entrega",
+    "description": "Projeto final de programcao para internet",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Carla\\ProjetoPiEntrega\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lucasmourav",
+            "email": "lucas.moura.ventura@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
