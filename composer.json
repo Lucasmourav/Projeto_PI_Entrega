@@ -1,6 +1,6 @@
 {
-    "name": "carla/projeto_pi_entrega",
-    "description": "Projeto final de programcao para internet",
+    "name": "lucas/levelup-games",
+    "description": "Projeto da aula de programacao para internet do curso de gti da fatec jau",
     "type": "project",
     "license": "MIT",
     "autoload": {
