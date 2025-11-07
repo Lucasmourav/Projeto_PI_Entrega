@@ -1,8 +1,11 @@
+# Ativa o mecanismo de reescrita de URLs do Apache
 RewriteEngine On
-# Se o arquivo ou diretório existir, serve direto
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
 
-# Caso contrário, encaminha para o front controller
-RewriteRule ^ index.php [L]
+# Se o arquivo solicitado existir (-f) ou for um diretório (-d), serve ele diretamente
+RewriteCond %{REQUEST_FILENAME} -f [OR]  # Verifica se é um arquivo existente
+RewriteCond %{REQUEST_FILENAME} -d       # Verifica se é um diretório existente
+RewriteRule ^ - [L]                      # Para aqui e não aplica outras regras (L = Last)
+
+# Se não for arquivo nem diretório, redireciona todas as requisições para o index.php
+RewriteRule ^ index.php [L]              # Envia tudo para index.php (L = última regra)
+# Fim do arquivo .htaccess

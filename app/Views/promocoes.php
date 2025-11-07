@@ -16,10 +16,11 @@
         <ul>
           <li><a href="<?php echo $BASE; ?>/sobre">Sobre</a></li>
           <li><a href="<?php echo $BASE; ?>/produtos">Produtos</a></li>
-          <li><a href="<?php echo $BASE; ?>/cardapio">Cardapio</a></li>
-          <li><a href="<?php echo $BASE; ?>/promocoes" aria-current="page">Promocoes</a></li>
+          <li><a href="<?php echo $BASE; ?>/cardapio">Cardápio</a></li>
+          <li><a href="<?php echo $BASE; ?>/promocoes">Promoções</a></li>
           <li><a href="<?php echo $BASE; ?>/contato">Fale Conosco</a></li>
           <li><a href="<?php echo $BASE; ?>/carrinho">Carrinho</a></li>
+          <li><a href="<?php echo $BASE; ?>/login" aria-current="page">Login / Cadastro</a></li>
         </ul>
       </nav>
     </div>

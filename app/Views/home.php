@@ -23,14 +23,15 @@
 				<a href="./">Doceria do Amor</a>
         </div>
         <nav class="menu-nav">
-          <ul>
-					<li><a href="./sobre">Sobre</a></li>
-					<li><a href="./produtos">Produtos</a></li>
-					<li><a href="./cardapio">Cardapio</a></li>
-					<li><a href="./promocoes">Promocoes</a></li>
-					<li><a href="./contato">Fale Conosco</a></li>
-					<li><a href="./carrinho">Carrinho</a></li>
-          </ul>
+        <ul>
+          <li><a href="<?php echo $BASE; ?>/sobre">Sobre</a></li>
+          <li><a href="<?php echo $BASE; ?>/produtos">Produtos</a></li>
+          <li><a href="<?php echo $BASE; ?>/cardapio">Cardápio</a></li>
+          <li><a href="<?php echo $BASE; ?>/promocoes">Promoções</a></li>
+          <li><a href="<?php echo $BASE; ?>/contato">Fale Conosco</a></li>
+          <li><a href="<?php echo $BASE; ?>/carrinho">Carrinho</a></li>
+          <li><a href="<?php echo $BASE; ?>/login" aria-current="page">Login / Cadastro</a></li>
+        </ul>
         </nav>
       </div>
     </header>

@@ -1,136 +1,150 @@
+/* Zera margem e padding dos elementos listados */
+/* body, h1, h2, p, ul, li, a */
+/* Remove espaçamento padrão do navegador */
 body, h1, h2, p, ul, li, a {
+	/* margem externa zerada */
 	margin: 0px;
+	/* preenchimento interno zerado */
 	padding: 0px;
 }
 
+/* Estilos gerais do <body> */
 body {
+	/* fonte principal usada no site */
 	font-family: "Nunito", Helvetica, Arial, sans-serif;
+	/* cor padrão do texto */
 	color: #222222;
 }
 
+/* Variáveis CSS para cores, espaçamentos e tamanhos */
 :root {
+	/* cor primária clara */
 	--color-primary-200: #FF9FAF;
+	/* cor primária média */
 	--color-primary-300: #FF5B76;
+	/* cor primária escura */
 	--color-primary-500: #E91E63;
+	/* cor de destaque */
 	--color-accent: #66D9C2;
+	/* tom creme para fundos */
 	--color-cream: #FFF7F9;
+	/* cinza médio */
 	--color-gray-600: #a4a4a4;
+	/* cinza escuro */
 	--color-gray-700: #7c7c7c;
+	/* cor escura principal */
 	--color-dark: #222222;
+	/* branco */
 	--color-white: #ffffff;
+	/* raio padrão de borda */
 	--radius: 12px;
+	/* espaço entre elementos */
 	--gap: 20px;
+	/* largura máxima do container */
 	--container: 960px;
 }
 
 /* Containers e helpers */
+/* define largura máxima centralizada */
 .container { max-width: var(--container); margin: 0 auto; padding: 0 10px; }
+/* grid de duas colunas com proporções distintas */
 .grid-2 { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--gap); }
+/* em telas pequenas, usa coluna única */
 @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
 
 /* Hero section */
 .hero {
+  /* fundo em gradiente diagonal */
   background: linear-gradient(140deg, var(--color-primary-200), var(--color-primary-300));
+  /* texto em branco */
   color: var(--color-white);
+  /* espaçamento superior e inferior */
   padding: 60px 0;
 }
+/* centraliza conteúdo interno do hero */
 .hero .hero-content { max-width: var(--container); margin: 0 auto; padding: 0 10px; }
+/* tamanho do título principal no hero */
 .hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 10px; }
+/* parágrafo do hero com tamanho aumentado */
 .hero p { font-size: 1.25rem; opacity: .95; }
 
 /* Utilitários de marca e seções */
+/* título da marca em branco com sombra sutil */
 .title-brand { color: var(--color-white); text-shadow: 0 1px 0 rgba(0,0,0,0.05); }
+/* subtítulo em branco semi-opaco */
 .subtitle { color: rgba(255,255,255,.95); }
+/* espaçamento padrão para seções */
 .section { padding: 40px 0; }
 
-ul {
-	list-style: none;
-}
+/* Remove marcadores de listas */
+ul { list-style: none; }
 
-a {
-	text-decoration: none;
-}
+/* Remove sublinhado de links */
+a { text-decoration: none; }
 
-img {
-	display: block;
-	max-width: 100%;
-}
+/* Imagens se comportam como blocos e não ultrapassam 100% */
+img { display: block; max-width: 100%; }
 
-* {
-	box-sizing: border-box;
-}
+/* Inclui bord-box para todos os elementos */
+* { box-sizing: border-box; }
 
-/*Superinfo*/
-
-.superinfo-bg {
-	background: var(--color-primary-200);
-	color: white;
-}
+/* Superinfo: fundo e estilo básico */
+.superinfo-bg { background: var(--color-primary-200); color: white; }
 
 .superinfo {
+	/* largura máxima centralizada */
 	max-width: var(--container);
+	/* centraliza horizontalmente */
 	margin: 0 auto;
+	/* layout flexível horizontal */
 	display: flex;
 	justify-content: space-between;
+	/* permite quebrar em linhas em telas pequenas */
 	flex-wrap: wrap;
+	/* pequeno espaçamento superior */
 	padding-top: 10px;
 }
 
-.superinfo p, .superinfo a{
-	margin: 0 10px 10px 10px;
-}
+/* margens internas padronizadas para parágrafos e links da superinfo */
+.superinfo p, .superinfo a{ margin: 0 10px 10px 10px; }
 
-.superinfo a {
-	color: var(--color-white);
-}
+/* links na superinfo em branco */
+.superinfo a { color: var(--color-white); }
 
-/*Menu*/
-
-.menu-bg {
-	background: var(--color-primary-300);
-}
+/* Menu: fundo e container */
+.menu-bg { background: var(--color-primary-300); }
 
 .menu {
+	/* limita largura e centraliza */
 	max-width: var(--container);
 	margin: 0 auto;
 	padding: 15px 0;
+	/* layout flex para itens do menu */
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.menu a {
-	color: var(--color-white);
-}
+/* links do menu em branco */
+.menu a { color: var(--color-white); }
 
-.menu-logo a {
-	font-size: 2.25em;
-	font-weight: bold;
-	margin: 0 10px;
-}
+/* logo do menu maior e em negrito */
+.menu-logo a { font-size: 2.25em; font-weight: bold; margin: 0 10px; }
 
-.menu-nav ul {
-	display: flex;
-	flex-wrap: wrap;
-}
+/* lista de navegação em linha */
+.menu-nav ul { display: flex; flex-wrap: wrap; }
 
-.menu-nav a {
-	font-size: 1.25em;
-	display: block;
-	padding: 10px;
-}
+/* itens de navegação com padding para clique */
+.menu-nav a { font-size: 1.25em; display: block; padding: 10px; }
 
-.menu-nav a:hover{
-	color: var(--color-dark);
-}
+/* efeito hover simples trocando cor */
+.menu-nav a:hover{ color: var(--color-dark); }
 
-/* Estado ativo em navegação */
-.menu-nav a[aria-current="page"] {
-	position: relative;
-	font-weight: 800;
-}
+/* Estado ativo da navegação: destaque e barra inferior */
+.menu-nav a[aria-current="page"] { position: relative; font-weight: 800; }
 .menu-nav a[aria-current="page"]::after {
+	/* barra destacada abaixo do link ativo */
 	content: '';
 	position: absolute;
 	left: 10px;
@@ -141,8 +155,7 @@ img {
 	border-radius: 2px;
 }
 
-/*Introdução*/
-
+/* Introdução grande no topo */
 .introducao {
 	font-size: 3em;
 	line-height: 1;
@@ -151,8 +164,7 @@ img {
 	padding: 60px 10px;
 }
 
-/*Sobre*/
-
+/* Seção Sobre com bordas superior e inferior */
 .sobre {
 	border-top: 2px solid var(--color-primary-300);
 	border-bottom: 2px solid var(--color-primary-300);
@@ -163,15 +175,9 @@ img {
 	flex-wrap: wrap;
 }
 
-.sobre-info {
-	flex: 2 1 300px;
-	margin: 0 10px;
-}
+.sobre-info { flex: 2 1 300px; margin: 0 10px; }
 
-.sobre-info h1 {
-	font-size: 3em;
-	margin-bottom: .5em;
-}
+.sobre-info h1 { font-size: 3em; margin-bottom: .5em; }
 
 .sobre-info p {
 	font-size: 1.25em;
@@ -180,12 +186,9 @@ img {
 	color: var(--color-gray-700);
 }
 
-.sobre-img {
-	flex: 1 1 160px;
-	margin: 0 10px;
-}
+.sobre-img { flex: 1 1 160px; margin: 0 10px; }
 
-/* Padronização de imagens na seção Sobre */
+/* Padroniza imagens da seção Sobre */
 .sobre-img img {
 	width: 100%;
 	height: 240px;
@@ -193,17 +196,10 @@ img {
 	border-radius: var(--radius);
 }
 
-/*Produtos*/
+/* Produtos: container e espaçamento */
+.produtos { max-width: var(--container); margin: 60px auto; }
 
-.produtos {
-	max-width: var(--container);
-	margin: 60px auto;
-}
-
-.produtos h1 {
-	font-size: 3em;
-	margin: 0 10px 60px 10px
-}
+.produtos h1 { font-size: 3em; margin: 0 10px 60px 10px }
 
 .produtos-container {
 	display: grid;
@@ -222,11 +218,7 @@ img {
 	gap: 12px;
 }
 
-.produtos-item h2 {
-	font-size: 1.5em;
-	color: var(--color-dark);
-	padding: 0;
-}
+.produtos-item h2 { font-size: 1.5em; color: var(--color-dark); padding: 0; }
 
 .produtos-item img {
 	width: 100%;
@@ -236,7 +228,7 @@ img {
 	background: var(--color-white);
 }
 
-/* Imagens em cardápio (caso sejam adicionadas no futuro) */
+/* Imagens do cardápio padronizadas (se usadas) */
 .cardapio-item img {
 	width: 100%;
 	height: 180px;
@@ -245,7 +237,7 @@ img {
 	background: var(--color-white);
 }
 
-/* Usa aspect-ratio quando suportado para manter proporção consistente */
+/* Usa aspect-ratio quando suportado para manter proporção */
 @supports (aspect-ratio: 4 / 3) {
 	.produtos-item img {
 		aspect-ratio: 4 / 3;
@@ -253,20 +245,12 @@ img {
 	}
 }
 
-.purple {
-	border-top: 8px solid var(--color-primary-500);
-}
+/* Estilos de destaque por cor (bordas superiores) */
+.purple { border-top: 8px solid var(--color-primary-500); }
+.pink   { border-top: 8px solid var(--color-primary-500); }
+.blue   { border-top: 8px solid var(--color-primary-500); }
 
-.pink {
-	border-top: 8px solid var(--color-primary-500);
-}
-
-.blue {
-	border-top: 8px solid var(--color-primary-500);
-}
-
-/*Cardapio*/
-
+/* Cardápio: grid de itens */
 .cardapio{
 	background: #f7f7f7;
 	padding: 60px;
@@ -276,12 +260,7 @@ img {
 	align-items: stretch;
 }
 
-.cardapio h1 {
-	width: 100%;
-	font-size: 3em;
-	margin-bottom: 60px;
-	text-align: left;
-}
+.cardapio h1 { width: 100%; font-size: 3em; margin-bottom: 60px; text-align: left; }
 
 .cardapio-item {
 	border: 1px solid rgba(0,0,0,0.06);
@@ -297,7 +276,8 @@ img {
 	color: var(--color-gray-600);
 	text-align: center;
 	margin-top: 20px;
-	min-height: 2.4em; /* mantém a altura do título consistente */
+	/* mantém altura consistente do título */
+	min-height: 2.4em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -313,15 +293,14 @@ img {
 	padding: 10px 0 5px 0;
 	border-top: 4px solid #f7f7f7;
 	border-bottom: 4px solid #f7f7f7;
-	min-height: 2.6em; /* estabiliza altura da faixa de preço */
+	/* estabiliza altura da faixa de preço */
+	min-height: 2.6em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.cardapio-item sup {
-	font-size: 1.5rem;
-}
+.cardapio-item sup { font-size: 1.5rem; }
 
 .cardapio-item ul {
 	max-width: 300px;
@@ -329,7 +308,8 @@ img {
 	font-size: 1.25em;
 	font-style: italic;
 	color: var(--color-gray-700);
-	margin-bottom: 20px; /* padroniza espaçamento antes do botão */
+	/* espaçamento antes do botão */
+	margin-bottom: 20px;
 }
 
 .cardapio-item li {
@@ -340,6 +320,7 @@ img {
 }
 
 .cardapio-item li::after {
+	/* marcador decorativo ao lado de cada item */
 	content: '';
 	display: block;
 	width: 6px;
@@ -377,12 +358,11 @@ img {
 .botao:hover { filter: brightness(0.95); }
 .botao:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
 
-/* Estados de interação para botões e links principais */
+/* Estado hover para botões principais */
 .cardapio-item a:hover,
-.contato-form button:hover {
-	filter: brightness(0.95);
-}
+.contato-form button:hover { filter: brightness(0.95); }
 
+/* Foco visível consistente para acessibilidade */
 .cardapio-item a:focus-visible,
 .contato-form button:focus-visible,
 .menu-nav a:focus-visible {
@@ -392,25 +372,20 @@ img {
 }
 
 @media (max-width: 800px) {
-	.cardapio {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
+	/* reduz padding horizontal do cardápio em telas pequenas */
+	.cardapio { padding-left: 10px; padding-right: 10px; }
 }
 
-/* Elevação sutil em hover para cards */
+/* Transições e elevação sutil ao passar o mouse */
 .produtos-item,
-.cardapio-item {
-	transition: transform 150ms ease, box-shadow 150ms ease;
-}
+.cardapio-item { transition: transform 150ms ease, box-shadow 150ms ease; }
 .produtos-item:hover,
 .cardapio-item:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
-/*Promocoes*/
-
+/* Promoções: grid e títulos */
 .promocoes {
 	max-width: var(--container);
 	margin: 60px auto;
@@ -419,24 +394,14 @@ img {
 	gap: var(--gap);
 }
 
-.promocoes h1 {
-	width: 100%;
-	font-size: 3em;
-	margin-bottom: 60px;
-	text-align: left;
-}
+.promocoes h1 { width: 100%; font-size: 3em; margin-bottom: 60px; text-align: left; }
 
-.promocoes-item {
-	margin: 0;
-}
+.promocoes-item { margin: 0; }
 
-.promocoes-item h2 {
-	font-size: 2.25em;
-	color: var(--color-gray-600);
-	margin-bottom: 20px;
-}
+.promocoes-item h2 { font-size: 2.25em; color: var(--color-gray-600); margin-bottom: 20px; }
 
 .promocoes-item h2::before {
+	/* barra decorativa antes do título */
 	content: '';
 	display: inline-block;
 	width: 8px;
@@ -444,26 +409,13 @@ img {
 	margin-right: 10px;
 }
 
-.promocoes-item:nth-of-type(3n+1) h2::before {
-	background: var(--color-primary-500);
-}
+.promocoes-item:nth-of-type(3n+1) h2::before { background: var(--color-primary-500); }
+.promocoes-item:nth-of-type(3n+2) h2::before { background: var(--color-primary-300); }
+.promocoes-item:nth-of-type(3n+3) h2::before { background: var(--color-accent); }
 
-.promocoes-item:nth-of-type(3n+2) h2::before {
-	background: var(--color-primary-300);
-}
+.promocoes-item p { font-size: 1.25em; line-height: 1.4; color: var(--color-gray-700); }
 
-.promocoes-item:nth-of-type(3n+3) h2::before {
-	background: var(--color-accent);
-}
-
-.promocoes-item p {
-	font-size: 1.25em;
-	line-height: 1.4;
-	color: var(--color-gray-700);
-}
-
-/*Newsletter*/
-
+/* Newsletter / Contato */
 .contato {
 	background: #f7f7f7;
 	padding: 60px calc((100% - var(--container)) / 2 );
@@ -471,15 +423,9 @@ img {
 	flex-wrap: wrap;
 }
 
-.contato-info {
-	flex: 1 1 240px;
-	margin: 0 10px;
-}
+.contato-info { flex: 1 1 240px; margin: 0 10px; }
 
-.contato-info h1 {
-	font-size: 3em;
-	color: var(--color-gray-600);
-}
+.contato-info h1 { font-size: 3em; color: var(--color-gray-600); }
 
 .contato-info p {
 	font-size: 1.25em;
@@ -503,6 +449,7 @@ img {
 
 .form-group { display: flex; flex-direction: column; gap: 6px; }
 .form-group label { font-weight: 800; color: var(--color-dark); }
+
 .contato-form input,
 .contato-form textarea,
 .contato-form select {
@@ -540,40 +487,29 @@ img {
 @media (max-width: 600px) {
 	.contato-form { grid-template-columns: 1fr; }
 	.contato-form button { font-size: 1em; }
-	.sobre-img img {
-		height: 180px;
-	}
-	.produtos-item img {
-		height: 140px;
-	}
+	.sobre-img img { height: 180px; }
+	.produtos-item img { height: 140px; }
 }
 
-/* Tabelas (carrinho) */
+/* Tabelas do carrinho */
 .tabela {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
   background: var(--color-white);
 }
-.tabela caption {
-  text-align: left;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-.tabela th, .tabela td {
-  border: 1px solid rgba(0,0,0,0.08);
-  padding: 12px;
-}
+.tabela caption { text-align: left; font-weight: 800; margin-bottom: 10px; }
+.tabela th, .tabela td { border: 1px solid rgba(0,0,0,0.08); padding: 12px; }
 .tabela th { background: #f7f7f7; }
 .link-remover { color: #c62828; }
 .link-remover:hover { text-decoration: underline; }
 
-/* Alertas (feedback) */
+/* Alertas de feedback */
 .alert { padding: 12px 14px; border-radius: 8px; margin: 10px 0; }
 .alert.success { background: #e6f5f1; color: #0f5132; border: 1px solid #badbcc; }
 .alert.error { background: #fdecea; color: #842029; border: 1px solid #f5c2c7; }
 
-/* Link para pular o conteúdo */
+/* Link para pular o conteúdo (acessibilidade) */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -583,6 +519,7 @@ img {
   overflow: hidden;
 }
 .skip-link:focus {
+  /* quando em foco torna-se visível */
   position: static;
   width: auto;
   height: auto;
@@ -594,40 +531,26 @@ img {
   margin: 6px 10px;
 }
 
-/* Acessibilidade: reduzir animações se preferido pelo usuário */
+/* Reduz todas as animações se o usuário preferir movimento reduzido */
 @media (prefers-reduced-motion: reduce) {
-	* {
-		transition: none !important;
-	}
+	* { transition: none !important; }
 }
 
-/*Footer*/
+/* Footer simples com altura fixa e alinhamento */
+.footer { display: flex; background: var(--color-primary-200); height: 200px; align-items: center; }
 
-.footer {
-	display: flex;
-	background: var(--color-primary-200);
-	height: 200px;
-	align-items: center;
-}
+.footer p { flex: 1; text-align: center; font-size: 2.25em; color: white }
 
-.footer p {
-	flex: 1;
-	text-align: center;
-	font-size: 2.25em;
-	color: white
-}
-
-/* Tema escuro (respeita preferência do usuário) – preserva paleta da marca */
+/* Tema escuro: mantém paleta da marca, evita mudanças drásticas */
 @media (prefers-color-scheme: dark) {
-  /* Mantém o layout em paleta clara para consistência da marca */
+  /* mantém fundo claro por consistência */
   body { background: #ffffff; color: var(--color-dark); }
   .menu-bg { background: var(--color-primary-300); }
   .superinfo-bg { background: var(--color-primary-200); }
-  /* Mantém componentes com o mesmo visual do tema claro */
   .produtos-item, .cardapio-item { background: var(--color-cream); border-color: rgba(0,0,0,0.05); }
   .tabela { background: var(--color-white); }
   .tabela th { background: #f7f7f7; }
-  .contato { background: #f7f7f7; }
+  .contato { background: #f7f7f7; }		
   .contato-form input,
   .contato-form textarea,
   .contato-form select { background: #ffffff; color: #222222; border-color: var(--color-primary-200); }
