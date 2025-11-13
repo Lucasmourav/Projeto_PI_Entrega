@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * ProdutosController.php
+ * Controlador responsável por exibir páginas públicas de produtos e
+ * fornecer métodos administrativos básicos (criar/editar/excluir).
+ * Observação: Alguns métodos administrativos usam código placeholder
+ * (ex.: views admin e chamadas a Product::buscarPorId) — mantive lógica
+ * original e adicionei documentação.
+ */
+
 namespace App\Controllers;
 
 use App\Models\Produtos;

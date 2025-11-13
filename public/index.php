@@ -1,4 +1,15 @@
 <?php
+/**
+ * public/index.php
+ * Front controller simples do projeto. Responsável por:
+ *  - carregar dependências (composer)
+ *  - inicializar sessão
+ *  - calcular caminho base e rotear requisições para views simples
+ *
+ * Observação: o roteamento aqui é intencionalmente simples (switch sobre o path)
+ * e serve como ponto de partida para um micro-framework caseiro.
+ */
+
     // Carrega automaticamente todas as dependências instaladas via Composer
     require __DIR__ . '/../vendor/autoload.php';
 

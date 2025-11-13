@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Contato.php
+ * Modelo para mensagens enviadas pelo formulário de contato.
+ * Campos: id, nome, email, telefone, mensagem, status, created_at, updated_at
+ * Métodos: enviar(), buscarPorId(), listarTodos(), responder()
+ * Observação: método enviar() contém um placeholder para persistência em BD
+ * e envio de e-mail — aqui foram adicionados comentários explicativos apenas.
+ */
+
 namespace App\Models;
 
 class Contato {

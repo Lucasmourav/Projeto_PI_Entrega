@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Usuario.php
+ * Modelo simples para representar usuários do sistema.
+ * Campos principais: id, nome, email, senha, created_at, updated_at
+ * Observações:
+ *  - setSenha() faz hash usando password_hash
+ *  - métodos de persistência/consulta estão como exemplos/commented placeholders
+ */
+
 namespace App\Models;
 
 class Usuario {

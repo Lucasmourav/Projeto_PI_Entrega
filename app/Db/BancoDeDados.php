@@ -1,5 +1,22 @@
 <?php
 
+/**
+ * BancoDeDados.php
+ * Classe singleton responsável por criar e expor uma conexão PDO com o
+ * banco MySQL usado pelo projeto.
+ *
+ * Responsabilidades:
+ *  - Instanciar e manter uma única conexão PDO
+ *  - Fornecer métodos utilitários simples: prepare, beginTransaction, commit,
+ *    rollback e lastInsertId
+ *
+ * Observações:
+ *  - As credenciais e o nome do banco estão atualmente hard-coded aqui
+ *    (localhost / Projeto_PI_Entrega / root / ''). Para produção, mova
+ *    essas configurações para variáveis de ambiente ou um arquivo seguro.
+ *  - A classe foi apenas documentada; não alterei a lógica de conexão.
+ */
+
 namespace App\Db;
 
 class BancoDeDados {

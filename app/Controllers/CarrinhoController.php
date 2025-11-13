@@ -1,9 +1,21 @@
 <?php
 
+/**
+ * CarrinhoController.php
+ * Controlador responsável pelas ações do carrinho de compras.
+ *
+ * Responsabilidades principais:
+ * - Inicializar o carrinho ligado à sessão/usuário
+ * - Expor métodos para listar, adicionar, atualizar, remover itens e limpar o carrinho
+ * - Responder tanto requisições síncronas quanto via AJAX
+ *
+ * Observação: este arquivo recebeu apenas documentação (comentários) para facilitar
+ * a manutenção; não foram alteradas as regras de negócio.
+ */
+
 namespace App\Controllers;
 
 use App\Models\Carrinho;
-use App\Models\Produtos;
 
 class CarrinhoController {
     private $carrinho;

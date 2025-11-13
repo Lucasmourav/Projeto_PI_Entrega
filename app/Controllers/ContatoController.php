@@ -1,5 +1,25 @@
 <?php
 
+/**
+ * ContatoController.php
+ * Controlador responsável por receber e processar envios do formulário de
+ * contato público e por fornecer ações administrativas mínimas para
+ * listagem/visualização/resposta às mensagens.
+ *
+ * Principais responsabilidades:
+ *  - index(): exibir a view do formulário de contato
+ *  - enviar(): validar e processar envios (suporte a AJAX e redirects)
+ *  - listar()/visualizar()/responder(): placeholders para área administrativa
+ *
+ * Observações importantes:
+ *  - Este controlador utiliza o modelo `App\Models\Contato` para a parte
+ *    pública. Em alguns pontos do código existem chamadas a uma classe
+ *    `Contact` (em inglês) nas operações administrativas — isso parece ser
+ *    uma inconsistência com o nome do modelo (`Contato`). Não alterei a
+ *    lógica aqui para evitar mudanças de comportamento, mas recomendo
+ *    revisar e harmonizar o nome da classe caso seja necessário.
+ */
+
 namespace App\Controllers;
 
 use App\Models\Contato;

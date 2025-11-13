@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Produtos.php
+ * Modelo que representa produtos da doceria.
+ * Campos principais: id, nome, preco, precoPromocional, descricao, categoria,
+ * imagem, estoque, created_at, updated_at
+ * Métodos principais: criar, atualizar, buscarPorId, listarTodos, listarPromocoes
+ * Observação: este arquivo foi comentado para facilitar a leitura; não alterei
+ * a lógica original.
+ */
+
 namespace App\Models;
 
 class Produtos {

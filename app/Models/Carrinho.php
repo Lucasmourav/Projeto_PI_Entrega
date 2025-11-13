@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Carrinho.php
+ * Modelo que representa o carrinho de compras de um usuário.
+ * A classe mantém itens em memória (array) e calcula o total.
+ * Métodos principais: adicionarItem, removerItem, atualizarQuantidade, limpar, salvar
+ * Observação: a implementação atual mantém os itens em memória e contém
+ * comentários indicando onde integrar com o banco de dados.
+ */
+
 namespace App\Models;
 
 class Carrinho {
