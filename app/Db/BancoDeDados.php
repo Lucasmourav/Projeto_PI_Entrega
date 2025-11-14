@@ -75,4 +75,58 @@ class BancoDeDados {
     public function rollback() {
         return $this->conn->rollBack();
     }
+
+    public function ensureUsuariosTabela() {
+        $sql = "CREATE TABLE IF NOT EXISTS `usuarios` (
+            `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            `nome` VARCHAR(191) NOT NULL,
+            `email` VARCHAR(191) NOT NULL,
+            `senha` VARCHAR(255) NOT NULL,
+            `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (`id`),
+            UNIQUE KEY `idx_usuarios_email` (`email`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+        $this->conn->exec($sql);
+    }
+
+    public function ensureProdutosTabela() {
+        $sql = "CREATE TABLE IF NOT EXISTS `produtos` (
+            `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            `nome` VARCHAR(255) NOT NULL,
+            `preco` DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+            `preco_promocional` DECIMAL(10,2) NULL,
+            `descricao` TEXT NULL,
+            `categoria` VARCHAR(100) NULL,
+            `imagem` VARCHAR(255) NULL,
+            `estoque` INT NOT NULL DEFAULT 0,
+            `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            PRIMARY KEY (`id`),
+            KEY `idx_produtos_nome` (`nome`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+        $this->conn->exec($sql);
+    }
+
+    public function seedUsuarioPadrao() {
+        $stmt = $this->conn->query("SELECT COUNT(*) AS total FROM usuarios");
+        $row = $stmt->fetch();
+        if ((int)$row['total'] === 0) {
+            $senha = password_hash('1234', PASSWORD_DEFAULT);
+            $ins = $this->conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (:n, :e, :s)");
+            $ins->execute([':n' => 'Administrador', ':e' => 'admin@doceria.com', ':s' => $senha]);
+        }
+    }
+
+    public function seedProdutosPadrao() {
+        $stmt = $this->conn->query("SELECT COUNT(*) AS total FROM produtos");
+        $row = $stmt->fetch();
+        if ((int)$row['total'] === 0) {
+            $sql = "INSERT INTO produtos (nome, preco, preco_promocional, descricao, categoria, imagem, estoque) VALUES
+                ('Bolo de Chocolate', 39.90, NULL, 'Bolo feito com cacau 70%', 'Bolos', 'bolo_chocolate.jpg', 20),
+                ('Brigadeiro Gourmet', 2.50, NULL, 'Brigadeiro com granulado belga', 'Doces', 'brigadeiro.jpg', 200),
+                ('Torta de Limão', 54.90, 49.90, 'Torta artesanal com merengue', 'Tortas', 'torta_limao.jpg', 10)";
+            $this->conn->exec($sql);
+        }
+    }
 }

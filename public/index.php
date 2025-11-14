@@ -16,6 +16,17 @@
     // Inicia a sessão caso ainda não esteja iniciada
     if (session_status() === PHP_SESSION_NONE) { session_start(); }
 
+    // Garante esquema e seeds básicos (ambiente de desenvolvimento)
+    try {
+        $db = \App\Db\BancoDeDados::getInstance();
+        $db->ensureUsuariosTabela();
+        $db->ensureProdutosTabela();
+        $db->seedUsuarioPadrao();
+        $db->seedProdutosPadrao();
+    } catch (\Throwable $e) {
+        // Silencia em produção; opcionalmente logar
+    }
+
     // Pega apenas o caminho da URL atual (sem parâmetros)
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -135,42 +146,20 @@
             exit;
         // Página de login e cadastro
         case '/login':
-            $erro_login = '';
-            $sucesso_cadastro = '';
+            $controller = new \App\Controllers\UsuariosController();
+            $controller->login();
+            exit;
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $acao = $_POST['acao'] ?? '';
+        // Logout
+        case '/logout':
+            $controller = new \App\Controllers\UsuariosController();
+            $controller->logout();
+            exit;
 
-                // Simulação de login/cadastro (sem banco)
-                if ($acao === 'login') {
-                    $email = trim($_POST['email_login'] ?? '');
-                    $senha = trim($_POST['senha_login'] ?? '');
-                    
-                    // Exemplo simples de login
-                    if ($email === 'teste@doceria.com' && $senha === '1234') {
-                        $_SESSION['usuario'] = $email;
-                        header('Location: ' . $basePath . '/');
-                        exit;
-                    } else {
-                        $erro_login = 'E-mail ou senha incorretos.';
-                    }
-                }
-
-                if ($acao === 'cadastro') {
-                    $nome = trim($_POST['nome_cadastro'] ?? '');
-                    $email = trim($_POST['email_cadastro'] ?? '');
-                    $senha = trim($_POST['senha_cadastro'] ?? '');
-
-                    if ($nome !== '' && $email !== '' && $senha !== '') {
-                        // Aqui você poderia salvar no banco (exemplo simplificado)
-                        $sucesso_cadastro = 'Cadastro realizado com sucesso! Agora você pode entrar.';
-                    } else {
-                        $erro_login = 'Preencha todos os campos para se cadastrar.';
-                    }
-                }
-            }
-
-            require __DIR__ . '/../app/Views/login.php';
+        // Registrar (cadastro de usuário)
+        case '/registrar':
+            $controller = new \App\Controllers\UsuariosController();
+            $controller->registrar();
             exit;
     }
 

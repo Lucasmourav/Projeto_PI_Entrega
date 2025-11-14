@@ -31,7 +31,7 @@ class ProdutosController {
     }
     
     public function detalhes($id) {
-        $produto = $this->produtos->buscarPorId($id);
+        $produto = Produtos::buscarPorId($id);
         if (!$produto) {
             header('Location: /produtos');
             exit;
@@ -68,7 +68,7 @@ class ProdutosController {
     }
     
     public function editar($id) {
-        $produto = Product::buscarPorId($id);
+        $produto = Produtos::buscarPorId($id);
         if (!$produto) {
             header('Location: /admin/produtos');
             exit;
@@ -102,7 +102,7 @@ class ProdutosController {
     public function excluir($id) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
-                $produto = Product::buscarPorId($id);
+                $produto = Produtos::buscarPorId($id);
                 if ($produto) {
                     // Lógica para excluir a imagem se existir
                     // Lógica para excluir o produto

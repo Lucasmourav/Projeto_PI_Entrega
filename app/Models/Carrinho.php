@@ -46,7 +46,7 @@ class Carrinho {
     // Métodos de negócio
     public function adicionarItem($produtoId, $quantidade = 1) {
         // Busca o produto
-        $produto = Product::buscarPorId($produtoId);
+        $produto = Produtos::buscarPorId($produtoId);
         if (!$produto) {
             throw new \Exception("Produto não encontrado");
         }
@@ -124,6 +124,6 @@ class Carrinho {
     
     public static function buscarCarrinhoPorUsuario($userId) {
         // SELECT * FROM carrinho WHERE user_id = :user_id AND status = 'ativo'
-        return new Cart($userId);
+        return new Carrinho($userId);
     }
 }

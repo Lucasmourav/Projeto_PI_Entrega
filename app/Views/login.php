@@ -34,10 +34,20 @@
 
   <section class="contato">
     <div class="login-container">
+      <?php 
+        $flash_erro = $_SESSION['erro'] ?? '';
+        $flash_sucesso = $_SESSION['sucesso'] ?? '';
+        if ($flash_erro !== '') { unset($_SESSION['erro']); }
+        if ($flash_sucesso !== '') { unset($_SESSION['sucesso']); }
+      ?>
       <?php if (!empty($erro_login)) : ?>
         <div class="alert error"><?php echo htmlspecialchars($erro_login); ?></div>
       <?php elseif (!empty($sucesso_cadastro)) : ?>
         <div class="alert success"><?php echo htmlspecialchars($sucesso_cadastro); ?></div>
+      <?php elseif (!empty($flash_erro)) : ?>
+        <div class="alert error"><?php echo htmlspecialchars($flash_erro); ?></div>
+      <?php elseif (!empty($flash_sucesso)) : ?>
+        <div class="alert success"><?php echo htmlspecialchars($flash_sucesso); ?></div>
       <?php endif; ?>
 
       <div class="forms-grid">
@@ -56,21 +66,21 @@
         </form>
 
         <!-- Formulário de Cadastro -->
-        <form class="contato-form" method="post" action="<?php echo $BASE; ?>/login" novalidate>
+        <form class="contato-form" method="post" action="<?php echo $BASE; ?>/registrar" novalidate>
           <h2>Criar Conta</h2>
           <div class="form-group">
             <label for="nome_cadastro">Nome completo</label>
-            <input id="nome_cadastro" name="nome_cadastro" type="text" placeholder="Seu nome" required autocomplete="name">
+            <input id="nome_cadastro" name="nome" type="text" placeholder="Seu nome" required autocomplete="name">
           </div>
           <div class="form-group">
             <label for="email_cadastro">E-mail</label>
-            <input id="email_cadastro" name="email_cadastro" type="email" placeholder="voce@exemplo.com" required autocomplete="email">
+            <input id="email_cadastro" name="email" type="email" placeholder="voce@exemplo.com" required autocomplete="email">
           </div>
           <div class="form-group">
             <label for="senha_cadastro">Senha</label>
-            <input id="senha_cadastro" name="senha_cadastro" type="password" placeholder="Crie uma senha" required autocomplete="new-password">
+            <input id="senha_cadastro" name="senha" type="password" placeholder="Crie uma senha" required autocomplete="new-password">
           </div>
-          <button type="submit" name="acao" value="cadastro">Cadastrar</button>
+          <button type="submit">Cadastrar</button>
         </form>
       </div>
     </div>

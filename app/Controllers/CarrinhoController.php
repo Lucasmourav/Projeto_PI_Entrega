@@ -46,7 +46,7 @@ class CarrinhoController {
                 throw new \Exception('Dados inválidos');
             }
             
-            $this->cart->adicionarItem($produtoId, $quantidade);
+            $this->carrinho->adicionarItem($produtoId, $quantidade);
             
             if (isset($_POST['ajax'])) {
                 header('Content-Type: application/json');
@@ -91,7 +91,7 @@ class CarrinhoController {
                 throw new \Exception('Produto não identificado');
             }
             
-            $this->cart->atualizarQuantidade($produtoId, $quantidade);
+            $this->carrinho->atualizarQuantidade($produtoId, $quantidade);
             
             if (isset($_POST['ajax'])) {
                 $itens = $this->carrinho->getItems();

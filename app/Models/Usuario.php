@@ -11,6 +11,8 @@
 
 namespace App\Models;
 
+use App\Db\BancoDeDados;
+
 class Usuario {
     private $id;
     private $nome;
@@ -25,6 +27,7 @@ class Usuario {
     public function __construct() {
         // Aqui você configuraria a conexão real com o banco
         // $this->db = new PDO(...);
+        $this->db = BancoDeDados::getInstance()->getConnection();
     }
     
     // Getters e Setters
@@ -60,11 +63,16 @@ class Usuario {
     public function autenticar($email, $senha) {
         // Em um cenário real, verificaria no banco
         // SELECT * FROM usuarios WHERE email = :email LIMIT 1
-        
-        if ($email === "teste@doceria.com" && $senha === "1234") {
-            return true;
-        }
-        return false;
+        $stmt = $this->db->prepare('SELECT id, nome, email, senha FROM usuarios WHERE email = :email LIMIT 1');
+        $stmt->execute([':email' => $email]);
+        $row = $stmt->fetch();
+        if (!$row) { return false; }
+        if (!password_verify($senha, $row['senha'])) { return false; }
+        $this->id = (int)$row['id'];
+        $this->nome = $row['nome'];
+        $this->email = $row['email'];
+        $this->senha = $row['senha'];
+        return true;
     }
     
     public function criar() {
@@ -76,7 +84,13 @@ class Usuario {
         // Em um cenário real, salvaria no banco:
         // INSERT INTO usuarios (nome, email, senha, created_at) 
         // VALUES (:nome, :email, :senha, NOW())
-        
+        $stmt = $this->db->prepare('INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)');
+        $stmt->execute([
+            ':nome' => $this->nome,
+            ':email' => $this->email,
+            ':senha' => $this->senha,
+        ]);
+        $this->id = (int)BancoDeDados::getInstance()->lastInsertId();
         return true;
     }
     
@@ -88,17 +102,46 @@ class Usuario {
         // UPDATE usuarios 
         // SET nome = :nome, email = :email, updated_at = NOW()
         // WHERE id = :id
-        
+        $stmt = $this->db->prepare('UPDATE usuarios SET nome = :nome, email = :email WHERE id = :id');
+        $stmt->execute([
+            ':nome' => $this->nome,
+            ':email' => $this->email,
+            ':id' => $this->id,
+        ]);
         return true;
     }
     
     public static function buscarPorEmail($email) {
         // SELECT * FROM usuarios WHERE email = :email LIMIT 1
-        return null; // Retornaria um objeto User se encontrado
+        $db = BancoDeDados::getInstance()->getConnection();
+        $stmt = $db->prepare('SELECT id, nome, email, senha, created_at, updated_at FROM usuarios WHERE email = :email LIMIT 1');
+        $stmt->execute([':email' => $email]);
+        $row = $stmt->fetch();
+        if (!$row) { return null; }
+        $u = new self();
+        $u->id = (int)$row['id'];
+        $u->nome = $row['nome'];
+        $u->email = $row['email'];
+        $u->senha = $row['senha'];
+        $u->created_at = $row['created_at'];
+        $u->updated_at = $row['updated_at'];
+        return $u;
     }
     
     public static function listarTodos() {
         // SELECT * FROM usuarios ORDER BY nome
-        return []; // Retornaria array de objetos User
+        $db = BancoDeDados::getInstance()->getConnection();
+        $stmt = $db->query('SELECT id, nome, email, created_at, updated_at FROM usuarios ORDER BY nome');
+        $res = [];
+        while ($row = $stmt->fetch()) {
+            $u = new self();
+            $u->id = (int)$row['id'];
+            $u->nome = $row['nome'];
+            $u->email = $row['email'];
+            $u->created_at = $row['created_at'];
+            $u->updated_at = $row['updated_at'];
+            $res[] = $u;
+        }
+        return $res;
     }
 }

@@ -87,3 +87,12 @@ CREATE TABLE `itens_carrinho` (
 -- 3) Se quiser triggers para manter `carrinhos.total` sincronizado com a soma dos subtotais, posso adicionar um exemplo de trigger.
 
 -- Fim do schema
+
+-- Dados iniciais
+INSERT IGNORE INTO `usuarios` (`nome`, `email`, `senha`) VALUES
+('Administrador', 'admin@doceria.com', '$2y$10$J9vSxBVc/2d3m2t0WJ1n7eU4O1s1z5pV3iOaK5fZp4SgT9qH0G9de');
+
+INSERT INTO `produtos` (`nome`, `preco`, `preco_promocional`, `descricao`, `categoria`, `imagem`, `estoque`) VALUES
+('Bolo de Chocolate', 39.90, NULL, 'Bolo feito com cacau 70%', 'Bolos', 'bolo_chocolate.jpg', 20),
+('Brigadeiro Gourmet', 2.50, NULL, 'Brigadeiro com granulado belga', 'Doces', 'brigadeiro.jpg', 200),
+('Torta de Limão', 54.90, 49.90, 'Torta artesanal com merengue', 'Tortas', 'torta_limao.jpg', 10);
